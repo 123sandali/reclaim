@@ -1,17 +1,32 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const ReClaim());
+import 'firebase_options.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  runApp(const ReClaimApp());
 }
 
-class ReClaim extends StatelessWidget {
-  const ReClaim({super.key});
+class ReClaimApp extends StatelessWidget {
+  const ReClaimApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Text('Hello World'),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'ReClaim',
+      home: Scaffold(
+        body: Center(
+          child: Text(
+            'ReClaim — Firebase Connected',
+            style: TextStyle(fontSize: 22),
+          ),
+        ),
+      ),
     );
   }
 }
