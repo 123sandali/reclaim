@@ -1,0 +1,1 @@
+const String kReportsCollection = 'item_reports';
